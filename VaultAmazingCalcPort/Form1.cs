@@ -19,7 +19,12 @@ namespace VaultAmazingCalcPort
 
             Class1.Result = "0";
         }
-
+        /*
+        TODO:
+        -Fix multiplying and dividing sometimes "eating" numbers
+        -Fix multiplying and dividing when result is a float and not long
+        -Fix crashing when can't parse (number too big) /tryParse?
+        */
         private void lblResult_Click(object sender, EventArgs e)
         {
 
@@ -273,34 +278,28 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.Result.Contains(","))
             {
-                
-
-
                 Class1.ResultParsedD = Double.Parse(Class1.Result);
                 Class1.Result = "0";
                 lblResult.Text = Class1.Result;
                 //Class1.ResultParsedD is Double
                 //Class1.Result is String
-
-
             }
 
             //long because int is not enough
             else if (Class1.FinalResult != 0)
-            {
+             {
+                 Class1.ResultParsed = 0;
                 Class1.ResultParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.FinalResult + Class1.ResultParsed;
-                
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                 Class1.Result = "0";
             }   
             else if (Class1.ResultParsed != 0)
             {
                 Class1.ResultNewParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.ResultParsed + Class1.ResultNewParsed;
-                
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }
             else
             {
@@ -335,19 +334,18 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.FinalResult != 0)
             {
+                Class1.ResultParsed = 0;
                 Class1.ResultParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.FinalResult - Class1.ResultParsed;
-
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }
             else if (Class1.ResultParsed != 0)
             {
                 Class1.ResultNewParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.ResultParsed - Class1.ResultNewParsed;
-
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }
             else
             {
@@ -381,19 +379,18 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.FinalResult != 0)
             {
+                Class1.ResultParsed = 0;
                 Class1.ResultParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.FinalResult * Class1.ResultParsed;
-                
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
-            }   
+                Class1.Result = "0";
+            }
             else if (Class1.ResultParsed != 0)
             {
                 Class1.ResultNewParsed = Convert.ToInt64(Class1.Result);
                 Class1.FinalResult = Class1.ResultParsed * Class1.ResultNewParsed;
-                
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }
             else
             {
@@ -408,6 +405,13 @@ namespace VaultAmazingCalcPort
             {
                 Class1.ResultParsedD = 0;
                 Class1.ResultParsedD = Convert.ToDouble(Class1.Result);
+
+                if (Class1.ResultParsedD == 0)
+                {
+                    Class1.ResultParsedD = 1;
+                }
+
+
                 Class1.FinalResultD = Class1.FinalResultD / Class1.ResultParsedD;
                 lblResult.Text = Class1.FinalResultD.ToString();
                 Class1.Result = "0";
@@ -415,6 +419,13 @@ namespace VaultAmazingCalcPort
             else if (Class1.ResultParsedD != 0)
             {
                 Class1.ResultNewParsedD = Convert.ToDouble(Class1.Result);
+
+                if (Class1.ResultNewParsedD == 0)
+                {
+                    Class1.ResultNewParsedD = 1;
+                }
+
+
                 Class1.FinalResultD = Class1.ResultParsedD / Class1.ResultNewParsedD;
                 lblResult.Text = Class1.FinalResultD.ToString();
                 Class1.Result = "0";
@@ -422,28 +433,54 @@ namespace VaultAmazingCalcPort
             else if (Class1.Result.Contains(","))
             {
                 Class1.ResultParsedD = Double.Parse(Class1.Result);
+
+                if (Class1.ResultParsedD == 0)
+                {
+                    Class1.ResultParsedD = 1;
+                }
+
+
+
                 Class1.Result = "0";
                 lblResult.Text = Class1.Result;
             }
             else if (Class1.FinalResult != 0)
             {
+                Class1.ResultParsed = 0;
                 Class1.ResultParsed = Convert.ToInt64(Class1.Result);
-                Class1.FinalResult = Class1.FinalResult / Class1.ResultParsed;
+
+                if (Class1.ResultParsed == 0)
+                {
+                    Class1.ResultParsed = 1;
+                }
                 
+
+                Class1.FinalResult = Class1.FinalResult / Class1.ResultParsed;
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }   
             else if (Class1.ResultParsed != 0)
             {
                 Class1.ResultNewParsed = Convert.ToInt64(Class1.Result);
+
+                if (Class1.ResultNewParsed == 0)
+                {
+                    Class1.ResultNewParsed = 1;
+                }
+
                 Class1.FinalResult = Class1.ResultParsed / Class1.ResultNewParsed;
-                
                 lblResult.Text = Convert.ToString(Class1.FinalResult);
-                Class1.Reset();
+                Class1.Result = "0";
             }
             else
             {
                 Class1.ResultParsed = Convert.ToInt64(Class1.Result);
+
+                if (Class1.ResultParsed == 0)
+                {
+                    Class1.ResultParsed = 1;
+                }
+
                 Class1.Result = "0";
                 lblResult.Text = Class1.Result;
             }

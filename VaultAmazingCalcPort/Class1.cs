@@ -24,23 +24,22 @@ namespace VaultAmazingCalcPortClass
         public static bool LastMult;
         public static bool LastDiv;
 
-       
-
-
-
-
-
-
-
-
-
-
+        public static bool Parsed;
+        public static bool NewParsed;
+        public static bool FinalParsed;
+        public static bool ParsedD;
+        public static bool NewParsedD;
+        public static bool FinalParsedD;
+        /*
+        Bools for tryParse but it doesn't work on + - buttons, only on =, weird
+        */
 
         public static void Reset()
         {
             Result = "0";
             ResultParsed = 0;
             ResultNewParsed = 0;
+            FinalResult = 0;
 
             ResultParsedD = 0;
             ResultNewParsedD = 0;
