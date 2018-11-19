@@ -30,6 +30,9 @@ namespace VaultAmazingCalcPortClass
         public static bool ParsedD;
         public static bool NewParsedD;
         public static bool FinalParsedD;
+
+        public static string ToInt = "Error! Number too high.";
+        public static string ToDouble = "Error! Can't parse the number.";
         /*
         Bools for tryParse but it doesn't work on + - buttons, only on =, weird
         */
