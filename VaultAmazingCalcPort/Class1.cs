@@ -24,18 +24,12 @@ namespace VaultAmazingCalcPortClass
         public static bool LastMult;
         public static bool LastDiv;
 
-        public static bool Parsed;
-        public static bool NewParsed;
-        public static bool FinalParsed;
-        public static bool ParsedD;
-        public static bool NewParsedD;
-        public static bool FinalParsedD;
-
         public static string ToInt = "Error! Number too high.";
         public static string ToDouble = "Error! Can't parse the number.";
-        /*
-        Bools for tryParse but it doesn't work on + - buttons, only on =, weird
-        */
+
+        public static double ResultParsedToD;
+        public static double ResultNewParsedToD;
+        public static double FinalResultToD;
 
         public static void Reset()
         {

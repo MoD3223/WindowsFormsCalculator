@@ -21,8 +21,8 @@ namespace VaultAmazingCalcPort
         }
         /*
         TODO:
-        -Fix multiplying and dividing when result is a float and not long
-        -Fix converting to Double when it isn't first number containing ","
+        -Fix dividing when result is a float and not long // Try parsing everything to double even if it's even number and if it fail try to parse to int? //Make it always parse to double and if it contains .0 parse to int64
+        -Fix converting to Double when it isn't first number containing "," //Fixed?
         -Check if Diving by 0 doesn't crash the app
         */
         private void lblResult_Click(object sender, EventArgs e)
@@ -256,7 +256,6 @@ namespace VaultAmazingCalcPort
             //Doubles below
              if (Class1.FinalResultD != 0)
             {
-                Class1.ResultParsedD = 0;
                 if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
                 {
                     Class1.FinalResultD = Class1.FinalResultD + Class1.ResultParsedD;
@@ -290,7 +289,38 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.Result.Contains(","))
             {
-                if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
+                if (Class1.FinalResult != 0)
+                {
+                   Class1.FinalResultToD = Convert.ToDouble(Class1.FinalResult);
+                    if (Double.TryParse(Class1.Result,out Class1.ResultParsedD))
+                    {
+                        Class1.FinalResultD = Class1.FinalResultToD + Class1.ResultParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        Class1.Result = "0";
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                    
+                }
+                else if (Class1.ResultParsed != 0)
+                {
+                    Class1.ResultParsedToD = Convert.ToDouble(Class1.ResultParsed);
+                    if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
+                    {
+                        Class1.FinalResultD = Class1.ResultParsedToD + Class1.ResultNewParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        
+                        Class1.Result = "0";
+
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                }
+                else if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
                 {
                     Class1.Result = "0";
                     lblResult.Text = Class1.Result;
@@ -377,7 +407,38 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.Result.Contains(","))
             {
-                if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
+                if (Class1.FinalResult != 0)
+                {
+                    Class1.FinalResultToD = Convert.ToDouble(Class1.FinalResult);
+                    if (Double.TryParse(Class1.Result,out Class1.ResultParsedD))
+                    {
+                        Class1.FinalResultD = Class1.FinalResultToD - Class1.ResultParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        Class1.Result = "0";
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                    
+                }
+                else if (Class1.ResultParsed != 0)
+                {
+                    Class1.ResultParsedToD = Convert.ToDouble(Class1.ResultParsed);
+                    if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
+                    {
+                        Class1.FinalResultD = Class1.ResultParsedToD - Class1.ResultNewParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        
+                        Class1.Result = "0";
+
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                }
+                else if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
                 {
                     Class1.Result = "0";
                     lblResult.Text = Class1.Result;
@@ -456,7 +517,38 @@ namespace VaultAmazingCalcPort
             }
             else if (Class1.Result.Contains(","))
             {
-                if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
+                if (Class1.FinalResult != 0)
+                {
+                    Class1.FinalResultToD = Convert.ToDouble(Class1.FinalResult);
+                    if (Double.TryParse(Class1.Result,out Class1.ResultParsedD))
+                    {
+                        Class1.FinalResultD = Class1.FinalResultToD * Class1.ResultParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        Class1.Result = "0";
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                    
+                }
+                else if (Class1.ResultParsed != 0)
+                {
+                    Class1.ResultParsedToD = Convert.ToDouble(Class1.ResultParsed);
+                    if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
+                    {
+                        Class1.FinalResultD = Class1.ResultParsedToD * Class1.ResultNewParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        
+                        Class1.Result = "0";
+
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                }
+                else if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
                 {
                     Class1.Result = "0";
                     lblResult.Text = Class1.Result;
@@ -561,13 +653,41 @@ namespace VaultAmazingCalcPort
                     Class1.Reset();
                     lblResult.Text = Class1.Result;
                 }
-
-
-                
-                if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
+                else if (Class1.FinalResult != 0)
                 {
+                    Class1.FinalResultToD = Convert.ToDouble(Class1.FinalResult);
+                    if (Double.TryParse(Class1.Result,out Class1.ResultParsedD))
+                    {
+                        Class1.FinalResultD = Class1.FinalResultToD / Class1.ResultParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
                         Class1.Result = "0";
-                        lblResult.Text = Class1.Result;
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                    
+                }
+                else if (Class1.ResultParsed != 0)
+                {
+                    Class1.ResultParsedToD = Convert.ToDouble(Class1.ResultParsed);
+                    if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
+                    {
+                        Class1.FinalResultD = Class1.ResultParsedToD / Class1.ResultNewParsedD;
+                        lblResult.Text = Class1.FinalResultD.ToString();
+                        
+                        Class1.Result = "0";
+
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+                }
+                else if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
+                {
+                    Class1.Result = "0";
+                    lblResult.Text = Class1.Result;
                 }
                 else
                 {
