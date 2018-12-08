@@ -21,9 +21,12 @@ namespace VaultAmazingCalcPort
         }
         /*
         TODO:
-        -Fix dividing when result is a float and not long // Try parsing everything to double even if it's even number and if it fail try to parse to int? //Make it always parse to double and if it contains .0 parse to int64
+        -Fix dividing when result is a float and not long //Make it always parse to double and if it contains .0 parse to int64 //Fixed? Trying to parse just the output leaving normal numbers alone
         -Fix converting to Double when it isn't first number containing "," //Fixed?
         -Check if Diving by 0 doesn't crash the app
+        
+            -Use LastZero bool //Done
+            -add multiplying by itself as a for loop // Can't do x*x=x in for loop
         */
         private void lblResult_Click(object sender, EventArgs e)
         {
@@ -149,8 +152,16 @@ namespace VaultAmazingCalcPort
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            Class1.Result += "0";
-            lblResult.Text = Class1.Result;
+            if (Class1.LastZero)
+            {
+                
+                Class1.Result += "0";
+                lblResult.Text = Class1.Result;
+            }
+            else
+            {
+                Class1.LastZero = true;
+            }
         }
 
         private void btnDot_Click(object sender, EventArgs e)
@@ -705,7 +716,12 @@ namespace VaultAmazingCalcPort
 
                 if (Int64.TryParse(Class1.Result, out Class1.ResultParsed))
                 {
-                    Class1.FinalResult = Class1.FinalResult / Class1.ResultParsed;
+                    Class1.FinalResultD = Class1.FinalResult / Class1.ResultParsed;
+                    Class1.FinalDivString = Convert.ToString(Class1.FinalResultD);
+                    if (Class1.FinalDivString.Contains(",0"))
+                    {
+                        //Add something to remove the ,0 from the string
+                    }
                     lblResult.Text = Convert.ToString(Class1.FinalResult);
                     Class1.Result = "0";
                 }
@@ -725,7 +741,16 @@ namespace VaultAmazingCalcPort
 
                 if (Int64.TryParse(Class1.Result, out Class1.ResultNewParsed))
                 {
-                    Class1.FinalResult = Class1.ResultParsed / Class1.ResultNewParsed;
+                    Class1.FinalResultD = Class1.ResultParsed / Class1.ResultNewParsed;
+                    //Not tested, changed FinalResult to D so output should always come as double
+                    Class1.FinalDivString = Convert.ToString(Class1.FinalResultD);
+                    if (Class1.FinalDivString.Contains(",0"))
+                    {
+                        //Add something to remove the ,0 from the string
+                    }
+
+
+
                     lblResult.Text = Convert.ToString(Class1.FinalResult);
                     Class1.Result = "0";
                 }
@@ -755,7 +780,62 @@ namespace VaultAmazingCalcPort
             }
         }
 
+        private void btnMulti_Click(object sender, EventArgs e)
+        {
+            int x = 0;
+            double y = 0;
+            double z;
 
+            if (true)
+            {
+                lblResult.Text = "Nothing to see here, move along!";
+            }
+
+            //remove the else so it works
+            else if (y == 0)
+            {
+            Class1.Reset();
+            if (!Class1.Result.Contains(","))
+            {
+                Class1.Result += ",0";
+            }
+
+
+
+            if (Double.TryParse(Class1.Result, out y))
+            {
+                Class1.Result = "0";
+                lblResult.Text = Class1.Result;
+            }
+            else
+            {
+                lblResult.Text = Class1.ToDouble;
+            }
+
+                if (y != 0)
+                {
+                    if (Int32.TryParse(Class1.Result, out x))
+                    {
+                        Class1.Result = "0";
+                        lblResult.Text = Class1.Result;
+                    }
+                    else
+                    {
+                        lblResult.Text = Class1.ToDouble;
+                    }
+
+                }
+                
+
+
+                for (int i = 1; i < x; i++)
+                {
+
+                }
+
+            }
+
+        }
     }
 
 }

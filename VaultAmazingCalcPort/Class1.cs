@@ -15,6 +15,8 @@ namespace VaultAmazingCalcPortClass
         public static long ResultNewParsed;
         public static long FinalResult;
 
+        //Result > Parsed > New Parsed > Final > Parsed....
+
         public static double ResultParsedD;
         public static double ResultNewParsedD;
         public static double FinalResultD;
@@ -23,6 +25,7 @@ namespace VaultAmazingCalcPortClass
         public static bool LastMinus;
         public static bool LastMult;
         public static bool LastDiv;
+        public static bool LastZero;
 
         public static string ToInt = "Error! Number too high.";
         public static string ToDouble = "Error! Can't parse the number.";
@@ -30,6 +33,14 @@ namespace VaultAmazingCalcPortClass
         public static double ResultParsedToD;
         public static double ResultNewParsedToD;
         public static double FinalResultToD;
+
+       // public static int x;
+        //x shows how many times we multipy by itself
+        //public static double y = 0;
+
+            //For divide
+        public static string FinalDivString;
+
 
         public static void Reset()
         {

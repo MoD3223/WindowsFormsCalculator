@@ -48,6 +48,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnBckSpace = new System.Windows.Forms.Button();
             this.btnReverse = new System.Windows.Forms.Button();
+            this.btnMulti = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblResult
@@ -253,11 +254,22 @@
             this.btnReverse.UseVisualStyleBackColor = true;
             this.btnReverse.Click += new System.EventHandler(this.btnReverse_Click);
             // 
+            // btnMulti
+            // 
+            this.btnMulti.Location = new System.Drawing.Point(424, 237);
+            this.btnMulti.Name = "btnMulti";
+            this.btnMulti.Size = new System.Drawing.Size(97, 52);
+            this.btnMulti.TabIndex = 27;
+            this.btnMulti.Text = "Multiply by itself";
+            this.btnMulti.UseVisualStyleBackColor = true;
+            this.btnMulti.Click += new System.EventHandler(this.btnMulti_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 304);
+            this.Controls.Add(this.btnMulti);
             this.Controls.Add(this.btnReverse);
             this.Controls.Add(this.btnBckSpace);
             this.Controls.Add(this.btnReset);
@@ -305,6 +317,7 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnBckSpace;
         private System.Windows.Forms.Button btnReverse;
+        private System.Windows.Forms.Button btnMulti;
     }
 }
 
