@@ -22,11 +22,8 @@ namespace VaultAmazingCalcPort
         /*
         TODO:
         -Fix dividing when result is a float and not long //Make it always parse to double and if it contains .0 parse to int64 //Fixed? Trying to parse just the output leaving normal numbers alone
-        -Fix converting to Double when it isn't first number containing "," //Fixed?
-        -Check if Diving by 0 doesn't crash the app
         
-            -Use LastZero bool //Done
-            -add multiplying by itself as a for loop // Can't do x*x=x in for loop
+            -add multiplying by itself as a for loop // Can't do x*x=x in for loop, don't have idea how to do it differently
         */
         private void lblResult_Click(object sender, EventArgs e)
         {
@@ -779,7 +776,7 @@ namespace VaultAmazingCalcPort
                 }
             }
         }
-
+//Multi = multiply by itself
         private void btnMulti_Click(object sender, EventArgs e)
         {
             int x = 0;
@@ -799,7 +796,6 @@ namespace VaultAmazingCalcPort
             {
                 Class1.Result += ",0";
             }
-
 
 
             if (Double.TryParse(Class1.Result, out y))
