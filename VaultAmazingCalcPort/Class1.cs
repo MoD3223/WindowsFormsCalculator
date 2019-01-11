@@ -26,6 +26,8 @@ namespace VaultAmazingCalcPortClass
         public static bool LastMult;
         public static bool LastDiv;
         public static bool LastZero;
+        //Multi = multiplying by itself
+        public static bool LastMulti;
 
         public static string ToInt = "Error! Number too high.";
         public static string ToDouble = "Error! Can't parse the number.";
@@ -61,6 +63,7 @@ namespace VaultAmazingCalcPortClass
             LastMinus = false;
             LastMult = false;
             LastDiv = false;
+            LastMulti = false;
         }
 
     }
