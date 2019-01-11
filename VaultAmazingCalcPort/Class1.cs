@@ -34,11 +34,10 @@ namespace VaultAmazingCalcPortClass
         public static double ResultNewParsedToD;
         public static double FinalResultToD;
 
-       // public static int x;
+        // public static int x;
         //x shows how many times we multipy by itself
         //public static double y = 0;
-
-            //For divide
+         //For divide
         public static string FinalDivString;
 
 
