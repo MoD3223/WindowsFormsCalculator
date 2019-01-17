@@ -22,7 +22,6 @@ namespace VaultAmazingCalcPort
         /*
         TODO:
         -Fix dividing when result is a float and not long //Make it always parse to double and if it contains .0 parse to int64 //Fixed? Trying to parse just the output leaving normal numbers alone
-        
             -add multiplying by itself as a for loop // Can't do x*x=x in for loop, don't have idea how to do it differently
         */
         private void lblResult_Click(object sender, EventArgs e)
@@ -193,39 +192,126 @@ namespace VaultAmazingCalcPort
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
+            if (Class1.LastPlus == true)
+            {
+                Add();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMinus == true)
+            {
+                Substract();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMult == true)
+            {
+                Multiply();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastDiv == true)
+            {
+                Divide();
+                Class1.BoolReset();
+            }
+            else{
             Add();
             Class1.LastPlus = true;
             Class1.LastMinus = false;
             Class1.LastMult = false;
             Class1.LastDiv = false;
-
+            }
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
+            if (Class1.LastPlus == true)
+            {
+                Add();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMinus == true)
+            {
+                Substract();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMult == true)
+            {
+                Multiply();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastDiv == true)
+            {
+                Divide();
+                Class1.BoolReset();
+            }
+            else{
             Substract();
             Class1.LastPlus = false;
             Class1.LastMinus = true;
             Class1.LastMult = false;
             Class1.LastDiv = false;
+            }
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
+            if (Class1.LastPlus == true)
+            {
+                Add();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMinus == true)
+            {
+                Substract();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMult == true)
+            {
+                Multiply();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastDiv == true)
+            {
+                Divide();
+                Class1.BoolReset();
+            }
+            else{
             Multiply();
             Class1.LastPlus = false;
             Class1.LastMinus = false;
             Class1.LastMult = true;
             Class1.LastDiv = false;
+            }
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
+            if (Class1.LastPlus == true)
+            {
+                Add();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMinus == true)
+            {
+                Substract();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastMult == true)
+            {
+                Multiply();
+                Class1.BoolReset();
+            }
+            else if (Class1.LastDiv == true)
+            {
+                Divide();
+                Class1.BoolReset();
+            }
+            else{
             Divide();
             Class1.LastPlus = false;
             Class1.LastMinus = false;
             Class1.LastMult = false;
             Class1.LastDiv = true;
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -962,7 +1048,7 @@ needs to be checked as I just copied from Divide() and didn't format it properly
 //Multi = multiply by itself
         private void btnMulti_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            btnMulti.Visible = false;
 
         }
     }
