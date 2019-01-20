@@ -21,6 +21,7 @@ namespace VaultAmazingCalcPortClass
         public static double ResultNewParsedD;
         public static double FinalResultD;
 
+        //LastX = Last pressed from bools below
         public static bool LastPlus;
         public static bool LastMinus;
         public static bool LastMult;
@@ -28,6 +29,14 @@ namespace VaultAmazingCalcPortClass
         public static bool LastZero;
         //Multi = multiplying by itself
         public static bool LastMulti;
+
+        //LastInputX = Last pressed button, used to prevent spam
+        public static bool LastInputPlus;
+        public static bool LastInputMinus;
+        public static bool LastInputMult;
+        public static bool LastInputDiv;
+
+        
 
         public static string ToInt = "Error! Number too high.";
         public static string ToDouble = "Error! Can't parse the number.";
@@ -54,10 +63,10 @@ namespace VaultAmazingCalcPortClass
             ResultNewParsedD = 0;
             FinalResultD = 0;
 
-            BoolReset();
+            LastBoolReset();
         }
 
-        public static void BoolReset()
+        public static void LastBoolReset()
         {
             LastPlus = false;
             LastMinus = false;
@@ -65,6 +74,16 @@ namespace VaultAmazingCalcPortClass
             LastDiv = false;
             LastMulti = false;
         }
+
+        public static void LastInputBoolReset()
+        {
+            LastInputPlus = false;
+            LastInputMinus = false;
+            LastInputMult = false;
+            LastInputDiv = false;
+        }
+
+
 
     }
 }

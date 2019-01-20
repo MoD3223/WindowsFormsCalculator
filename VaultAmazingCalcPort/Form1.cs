@@ -21,8 +21,10 @@ namespace VaultAmazingCalcPort
         }
         /*
         TODO:
-        When double pressing * or / the output changes to 0 or infinite
+        When putting 1+2+3+4etc it doesn't work with * or /
+        Diving by 0 shows infinite as result
         Add multiplying by itself
+        Show commands in separate window (also useful for debugging)
         */
         private void lblResult_Click(object sender, EventArgs e)
         {
@@ -31,6 +33,7 @@ namespace VaultAmazingCalcPort
 
         private void btn1_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "1";
@@ -44,6 +47,7 @@ namespace VaultAmazingCalcPort
 
         private void btn2_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "2";
@@ -57,6 +61,7 @@ namespace VaultAmazingCalcPort
 
         private void btn3_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "3";
@@ -70,6 +75,7 @@ namespace VaultAmazingCalcPort
 
         private void btn4_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "4";
@@ -83,6 +89,7 @@ namespace VaultAmazingCalcPort
 
         private void btn5_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "5";
@@ -96,6 +103,7 @@ namespace VaultAmazingCalcPort
 
         private void btn6_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "6";
@@ -109,6 +117,7 @@ namespace VaultAmazingCalcPort
 
         private void btn7_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "7";
@@ -122,6 +131,7 @@ namespace VaultAmazingCalcPort
 
         private void btn8_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "8";
@@ -135,6 +145,7 @@ namespace VaultAmazingCalcPort
 
         private void btn9_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result == "0")
             {
                 Class1.Result = "9";
@@ -148,6 +159,7 @@ namespace VaultAmazingCalcPort
 
         private void btn0_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.LastZero)
             {
                 
@@ -168,25 +180,26 @@ namespace VaultAmazingCalcPort
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.LastPlus == true)
             {
                 Add();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMinus == true)
             {
                 Substract();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMult == true)
             {
                 Multiply();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastDiv == true)
             {
                 Divide();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
         }
 
@@ -195,23 +208,24 @@ namespace VaultAmazingCalcPort
             if (Class1.LastPlus == true)
             {
                 Add();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMinus == true)
             {
                 Substract();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMult == true)
             {
                 Multiply();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastDiv == true)
             {
                 Divide();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
+            else if (Class1.LastInputPlus){}
             else{
             Add();
             Class1.LastPlus = true;
@@ -219,6 +233,8 @@ namespace VaultAmazingCalcPort
             Class1.LastMult = false;
             Class1.LastDiv = false;
             }
+            Class1.LastInputBoolReset();
+            Class1.LastInputPlus = true;
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
@@ -226,23 +242,24 @@ namespace VaultAmazingCalcPort
             if (Class1.LastPlus == true)
             {
                 Add();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMinus == true)
             {
                 Substract();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMult == true)
             {
                 Multiply();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastDiv == true)
             {
                 Divide();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
+            else if (Class1.LastInputMinus){}
             else{
             Substract();
             Class1.LastPlus = false;
@@ -250,6 +267,8 @@ namespace VaultAmazingCalcPort
             Class1.LastMult = false;
             Class1.LastDiv = false;
             }
+            Class1.LastInputBoolReset();
+            Class1.LastInputMinus = true;
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
@@ -257,23 +276,24 @@ namespace VaultAmazingCalcPort
             if (Class1.LastPlus == true)
             {
                 Add();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMinus == true)
             {
                 Substract();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMult == true)
             {
                 Multiply();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastDiv == true)
             {
                 Divide();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
+            else if (Class1.LastInputMult){}
             else{
             Multiply();
             Class1.LastPlus = false;
@@ -281,6 +301,8 @@ namespace VaultAmazingCalcPort
             Class1.LastMult = true;
             Class1.LastDiv = false;
             }
+            Class1.LastInputBoolReset();
+            Class1.LastInputMult = true;
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
@@ -288,23 +310,24 @@ namespace VaultAmazingCalcPort
             if (Class1.LastPlus == true)
             {
                 Add();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMinus == true)
             {
                 Substract();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastMult == true)
             {
                 Multiply();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
             else if (Class1.LastDiv == true)
             {
                 Divide();
-                Class1.BoolReset();
+                Class1.LastBoolReset();
             }
+            else if (Class1.LastInputDiv){}
             else{
             Divide();
             Class1.LastPlus = false;
@@ -312,11 +335,14 @@ namespace VaultAmazingCalcPort
             Class1.LastMult = false;
             Class1.LastDiv = true;
             }
+            Class1.LastInputBoolReset();
+            Class1.LastInputDiv = true;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             Class1.Reset();
+            Class1.LastInputBoolReset();
             lblResult.Text = Class1.Result;
         }
 
@@ -332,6 +358,7 @@ namespace VaultAmazingCalcPort
 
         private void btnReverse_Click(object sender, EventArgs e)
         {
+            Class1.LastInputBoolReset();
             if (Class1.Result.Contains("-"))
             {
                 Class1.Result = Class1.Result.Remove(0, 1);
