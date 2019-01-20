@@ -21,8 +21,8 @@ namespace VaultAmazingCalcPort
         }
         /*
         TODO:
-        -Fix dividing when result is a float and not long //Make it always parse to double and if it contains .0 parse to int64 //Fixed? Trying to parse just the output leaving normal numbers alone
-            -add multiplying by itself as a for loop // Can't do x*x=x in for loop, don't have idea how to do it differently
+        When double pressing * or / the output changes to 0 or infinite
+        Add multiplying by itself
         */
         private void lblResult_Click(object sender, EventArgs e)
         {
@@ -693,6 +693,16 @@ namespace VaultAmazingCalcPort
         }
         private void Divide()
         {
+            if (!Class1.Result.Contains(","))
+            {
+                Class1.Result += ",0";
+            }
+
+
+
+
+
+
             if (Class1.FinalResultD != 0)
             {
                 
@@ -701,10 +711,6 @@ namespace VaultAmazingCalcPort
                     Class1.Reset();
                     lblResult.Text = Class1.Result;
                 }
-
-
-
-
 
                 if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
                 {
@@ -725,12 +731,9 @@ namespace VaultAmazingCalcPort
                     Class1.Reset();
                     lblResult.Text = Class1.Result;
                 }
-
-
-
-
                 if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
                 {
+                    Class1.Result += ",0";
                         Class1.FinalResultD = Class1.ResultParsedD / Class1.ResultNewParsedD;
                         lblResult.Text = Class1.FinalResultD.ToString();
                         Class1.Result = "0";
@@ -849,7 +852,7 @@ namespace VaultAmazingCalcPort
                     Class1.Reset();
                     lblResult.Text = Class1.Result;
                 }
-
+                
 
                 if (Int64.TryParse(Class1.Result, out Class1.ResultParsed))
                 {
