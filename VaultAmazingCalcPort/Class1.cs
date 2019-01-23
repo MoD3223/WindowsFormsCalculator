@@ -64,6 +64,7 @@ namespace VaultAmazingCalcPortClass
             FinalResultD = 0;
 
             LastBoolReset();
+            LastInputBoolReset();
         }
 
         public static void LastBoolReset()
