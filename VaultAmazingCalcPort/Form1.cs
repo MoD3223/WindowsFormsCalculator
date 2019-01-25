@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VaultAmazingCalcPortClass;
+using VaultCalcPortClass1File;
 
 namespace VaultAmazingCalcPort
 {
@@ -19,13 +19,6 @@ namespace VaultAmazingCalcPort
 
             Class1.Result = "0";
         }
-        /*
-        TODO:
-        When putting 1+2+3+4etc it doesn't work with * or /
-        Diving by 0 shows infinite as result
-        Add multiplying by itself
-        Show commands in separate window (also useful for debugging)
-        */
         private void lblResult_Click(object sender, EventArgs e)
         {
 
@@ -205,143 +198,116 @@ namespace VaultAmazingCalcPort
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            if (Class1.LastPlus == true)
+            if (Class1.LastPlus)
             {
                 Add();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMinus == true)
+            else if (Class1.LastMinus)
             {
                 Substract();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMult == true)
+            else if (Class1.LastMult)
             {
                 Multiply();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastDiv == true)
+            else if (Class1.LastDiv)
             {
                 Divide();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastInputPlus){}
             else{
             Add();
-            Class1.LastPlus = true;
-            Class1.LastMinus = false;
-            Class1.LastMult = false;
-            Class1.LastDiv = false;
             }
-            Class1.LastInputBoolReset();
             Class1.LastInputPlus = true;
+            Class1.LastBoolReset();
+            Class1.LastPlus = true;
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
         {
-            if (Class1.LastPlus == true)
+            if (Class1.LastPlus)
             {
                 Add();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMinus == true)
+            else if (Class1.LastMinus)
             {
                 Substract();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMult == true)
+            else if (Class1.LastMult)
             {
                 Multiply();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastDiv == true)
+            else if (Class1.LastDiv)
             {
                 Divide();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastInputMinus){}
-            else{
+            else
+            {
             Substract();
-            Class1.LastPlus = false;
-            Class1.LastMinus = true;
-            Class1.LastMult = false;
-            Class1.LastDiv = false;
             }
-            Class1.LastInputBoolReset();
             Class1.LastInputMinus = true;
+            Class1.LastBoolReset();
+            Class1.LastMinus = true;
         }
 
         private void btnMultiply_Click(object sender, EventArgs e)
         {
-            if (Class1.LastPlus == true)
+            if (Class1.LastPlus)
             {
                 Add();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMinus == true)
+            else if (Class1.LastMinus)
             {
                 Substract();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMult == true)
+            else if (Class1.LastMult)
             {
                 Multiply();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastDiv == true)
+            else if (Class1.LastDiv)
             {
                 Divide();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastInputMult){}
-            else{
+            else
+            {
             Multiply();
-            Class1.LastPlus = false;
-            Class1.LastMinus = false;
-            Class1.LastMult = true;
-            Class1.LastDiv = false;
             }
-            Class1.LastInputBoolReset();
             Class1.LastInputMult = true;
+            Class1.LastBoolReset();
+            Class1.LastMult = true;
+
         }
 
         private void btnDivide_Click(object sender, EventArgs e)
         {
-            if (Class1.LastPlus == true)
+            if (Class1.LastPlus)
             {
                 Add();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMinus == true)
+            else if (Class1.LastMinus)
             {
                 Substract();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastMult == true)
+            else if (Class1.LastMult)
             {
                 Multiply();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastDiv == true)
+            else if (Class1.LastDiv)
             {
                 Divide();
-                Class1.LastBoolReset();
             }
-            else if (Class1.LastInputDiv){}
-            else{
+            else
+            {
             Divide();
-            Class1.LastPlus = false;
-            Class1.LastMinus = false;
-            Class1.LastMult = false;
-            Class1.LastDiv = true;
             }
-            Class1.LastInputBoolReset();
             Class1.LastInputDiv = true;
+            Class1.LastBoolReset();
+            Class1.LastDiv = true;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             Class1.Reset();
+            Class1.LastBoolReset();
             Class1.LastInputBoolReset();
             lblResult.Text = Class1.Result;
         }

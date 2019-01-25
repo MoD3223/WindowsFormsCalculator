@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VaultAmazingCalcPort;
-
-namespace VaultAmazingCalcPortClass
+﻿namespace VaultCalcPortClass1File
 {
     public class Class1
     {
@@ -64,6 +57,7 @@ namespace VaultAmazingCalcPortClass
             FinalResultD = 0;
 
             LastBoolReset();
+            LastInputBoolReset();
         }
 
         public static void LastBoolReset()
