@@ -268,7 +268,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 304);
+            this.ClientSize = new System.Drawing.Size(522, 304);
             this.Controls.Add(this.btnMulti);
             this.Controls.Add(this.btnReverse);
             this.Controls.Add(this.btnBckSpace);
