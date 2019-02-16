@@ -167,8 +167,15 @@ namespace VaultAmazingCalcPort
 
         private void btnDot_Click(object sender, EventArgs e)
         {
-            Class1.Result += ",";
-            lblResult.Text = Class1.Result;
+            if (Class1.Result.Contains(","))
+            {
+
+            }
+            else
+            {
+                Class1.Result += ",";
+                lblResult.Text = Class1.Result;
+            }
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
