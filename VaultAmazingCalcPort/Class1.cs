@@ -8,6 +8,12 @@
         public static long ResultNewParsed;
         public static long FinalResult;
 
+        //It's a long multi that takes 2 parameters and puts them together and shows output
+        public static long Multi(long k, long j)
+        {
+            return k * j;
+        }
+
         //Result > Parsed > New Parsed > Final > Parsed....
 
         public static double ResultParsedD;

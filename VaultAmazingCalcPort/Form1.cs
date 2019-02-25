@@ -866,192 +866,26 @@ namespace VaultAmazingCalcPort
             }
         }
 
-        /*
-x = x*x and x=x^2 doesn't work, no idea how to do ^2 sadly.
-Note to future self: Even if I figure out how to do this the if/else stuff
-needs to be checked as I just copied from Divide() and didn't format it properly
-
-
-
-        private void Multi(){
- if (Class1.FinalResultD != 0)
-            {
-                
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-
-
-
-                //Do stuff here, not finished
-
-                if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
-                {
-                        Class1.FinalResultD = Class1.ResultParsedD^2;
-                        lblResult.Text = Class1.FinalResultD.ToString();
-                        Class1.Result = "0";
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToDouble;
-                }
-            }
-            else if (Class1.ResultParsedD != 0)
-            {
-                
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-
-
-
-
-                if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
-                {
-                        Class1.FinalResultD = Class1.ResultParsedD / Class1.ResultNewParsedD;
-                        lblResult.Text = Class1.FinalResultD.ToString();
-                        Class1.Result = "0";
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToDouble;
-                }
-            }
-            else if (Class1.Result.Contains(","))
-            {
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-                else if (Class1.FinalResult != 0)
-                {
-                    Class1.FinalResultToD = Convert.ToDouble(Class1.FinalResult);
-                    if (Double.TryParse(Class1.Result,out Class1.ResultParsedD))
-                    {
-                        Class1.FinalResultD = Class1.FinalResultToD / Class1.ResultParsedD;
-                        lblResult.Text = Class1.FinalResultD.ToString();
-                        Class1.Result = "0";
-                    }
-                    else
-                    {
-                        lblResult.Text = Class1.ToDouble;
-                    }
-                    
-                }
-                else if (Class1.ResultParsed != 0)
-                {
-                    Class1.ResultParsedToD = Convert.ToDouble(Class1.ResultParsed);
-                    if (Double.TryParse(Class1.Result, out Class1.ResultNewParsedD))
-                    {
-                        Class1.FinalResultD = Class1.ResultParsedToD / Class1.ResultNewParsedD;
-                        lblResult.Text = Class1.FinalResultD.ToString();
-                        
-                        Class1.Result = "0";
-
-                    }
-                    else
-                    {
-                        lblResult.Text = Class1.ToDouble;
-                    }
-                }
-                else if (Double.TryParse(Class1.Result, out Class1.ResultParsedD))
-                {
-                    Class1.Result = "0";
-                    lblResult.Text = Class1.Result;
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToDouble;
-                }
-            }
-            else if (Class1.FinalResult != 0)
-            {
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-
-
-                if (Int64.TryParse(Class1.Result, out Class1.ResultParsed))
-                {
-                    Class1.FinalResultD = Class1.FinalResult / Class1.ResultParsed;
-                    Class1.FinalDivString = Convert.ToString(Class1.FinalResultD);
-                    if (Class1.FinalDivString.Contains(",0"))
-                    {
-                        //Add something to remove the ,0 from the string
-                    }
-                    lblResult.Text = Convert.ToString(Class1.FinalResult);
-                    Class1.Result = "0";
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToInt;
-                }
-
-            }   
-            else if (Class1.ResultParsed != 0)
-            {
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-
-                if (Int64.TryParse(Class1.Result, out Class1.ResultNewParsed))
-                {
-                    Class1.FinalResultD = Class1.ResultParsed / Class1.ResultNewParsed;
-                    //Not tested, changed FinalResult to D so output should always come as double
-                    Class1.FinalDivString = Convert.ToString(Class1.FinalResultD);
-                    if (Class1.FinalDivString.Contains(",0"))
-                    {
-                        //Add something to remove the ,0 from the string
-                    }
-
-
-
-                    lblResult.Text = Convert.ToString(Class1.FinalResult);
-                    Class1.Result = "0";
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToInt;
-                }
-            }
-            else
-            {
-                if (Class1.Result == "0")
-                {
-                    Class1.Reset();
-                    lblResult.Text = Class1.Result;
-                }
-
-
-                if (Int64.TryParse(Class1.Result, out Class1.ResultParsed))
-                {
-                    Class1.Result = "0";
-                    lblResult.Text = Class1.Result;
-                }
-                else
-                {
-                    lblResult.Text = Class1.ToInt;
-                }
-
-
-        }
-        }
-*/
-
+       
 
 //Multi = multiply by itself
         private void btnMulti_Click(object sender, EventArgs e)
         {
-            btnMulti.Visible = false;
+
+            if (Int64.TryParse(Class1.Result, out Class1.ResultParsed))
+            {
+                Class1.Result = "0";
+                lblResult.Text = Class1.Result;
+
+                lblResult.Text = Class1.Multi(Class1.ResultParsed, Class1.ResultParsed).ToString();
+
+            }
+            else
+            {
+                lblResult.Text = Class1.ToInt;
+            }
+
+
 
         }
     }
